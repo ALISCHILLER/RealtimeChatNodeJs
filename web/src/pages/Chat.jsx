@@ -28,7 +28,7 @@ export default function Chat() {
   useEffect(() => {
     if (currentUser) {
       socket.current = io(host);
-      socket.current.emit("add-user", currentUser._id);
+      socket.current.emit("افزودن کاربر", currentUser._id);
     }
   }, [currentUser]);
 

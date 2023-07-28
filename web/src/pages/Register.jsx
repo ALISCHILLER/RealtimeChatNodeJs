@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { registerRoute } from "../utils/APIRoutes";
@@ -37,24 +37,24 @@ export default function Register() {
     const { password, confirmPassword, username, email } = values;
     if (password !== confirmPassword) {
       toast.error(
-        "Password and confirm password should be same.",
+        "رمز عبور و رمز عبور تأیید باید یکسان باشد.",
         toastOptions
       );
       return false;
     } else if (username.length < 3) {
       toast.error(
-        "Username should be greater than 3 characters.",
+        "نام کاربری باید بیشتر از 3 کاراکتر باشد.",
         toastOptions
       );
       return false;
     } else if (password.length < 8) {
       toast.error(
-        "Password should be equal or greater than 8 characters.",
+        "رمز عبور باید مساوی یا بزرگتر از 8 کاراکتر باشد.",
         toastOptions
       );
       return false;
     } else if (email === "") {
-      toast.error("Email is required.", toastOptions);
+      toast.error("ایمیل مورد نیاز است.", toastOptions);
       return false;
     }
 
@@ -86,39 +86,39 @@ export default function Register() {
 
   return (
     <>
-      <FormContainer>
+      <FormContainer className="rtl">
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>snappy</h1>
+            <h1>MSA</h1>
           </div>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="نام کاربری"
             name="username"
             onChange={(e) => handleChange(e)}
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="ایمیل"
             name="email"
             onChange={(e) => handleChange(e)}
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="رمزعبور"
             name="password"
             onChange={(e) => handleChange(e)}
           />
           <input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="تکرار رمز عبور"
             name="confirmPassword"
             onChange={(e) => handleChange(e)}
           />
-          <button type="submit">Create User</button>
+          <button type="submit">ثبت نام</button>
           <span>
-            Already have an account ? <Link to="/login">Login.</Link>
+          از قبل حساب کاربری دارید؟ <Link to="/login">ورود</Link>
           </span>
         </form>
       </FormContainer>

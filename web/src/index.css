@@ -21,3 +21,9 @@ body {
 .Toastify__toast-theme--dark {
   background-color: #00000076 !important;
 }
+
+.rtl {
+  text-align: right;
+  float: right;
+}
+

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute } from "../utils/APIRoutes";
@@ -30,10 +30,10 @@ export default function Login() {
   const validateForm = () => {
     const { username, password } = values;
     if (username === "") {
-      toast.error("Email and Password is required.", toastOptions);
+      toast.error("ایمیل و رمز عبور لازم است.", toastOptions);
       return false;
     } else if (password === "") {
-      toast.error("Email and Password is required.", toastOptions);
+      toast.error("ایمیل و رمز عبور لازم است.", toastOptions);
       return false;
     }
     return true;
@@ -63,28 +63,28 @@ export default function Login() {
 
   return (
     <>
-      <FormContainer>
+      <FormContainer className="rtl">
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>snappy</h1>
+            <h1>MSA</h1>
           </div>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="نام کاربری "
             name="username"
             onChange={(e) => handleChange(e)}
             min="3"
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="رمز عبور"
             name="password"
             onChange={(e) => handleChange(e)}
           />
-          <button type="submit">Log In</button>
+          <button type="submit">ورود</button>
           <span>
-            Don't have an account ? <Link to="/register">Create One.</Link>
+          حساب کاربری ندارید؟ <Link to="/register">یکی بساز</Link>
           </span>
         </form>
       </FormContainer>
